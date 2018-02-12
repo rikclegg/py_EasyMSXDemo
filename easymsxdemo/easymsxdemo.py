@@ -37,12 +37,13 @@ class EasyMSXDemo():
             print("Field: " + fc.field.name() + "\tOld: " + fc.old_value + "\tNew: " + fc.new_value)
             
     def process_order_notification(self,notification):
-        print("\nChange to Order (" + str(notification.type) + "): " + notification.source.field("EMSX_SEQUENCE").value())
+        #print("\nChange to Order (" + str(notification.type) + "): " + notification.source.field("EMSX_SEQUENCE").value())
+        print("\nChange to Order (" + notification.type.name + "): " + notification.source.field("EMSX_SEQUENCE").value())
         self.print_field_changes(notification.field_changes)
         self.print_order_blotter()
 
     def process_route_notification(self,notification):
-        print("\nChange to Route (" + str(notification.type) + "): " + notification.source.field("EMSX_SEQUENCE").value() + "/" + notification.source.field("EMSX_ROUTE_ID").value())
+        print("\nChange to Route (" + notification.type.name + "): " + notification.source.field("EMSX_SEQUENCE").value() + "/" + notification.source.field("EMSX_ROUTE_ID").value())
         self.print_field_changes(notification.field_changes)
         self.print_route_blotter()
 
